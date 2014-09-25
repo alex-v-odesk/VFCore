@@ -27888,6 +27888,15 @@ Pet* Player::SummonPet(uint32 entry, float x, float y, float z, float ang, PetTy
     return pet;
 }
 
+bool Player::HavePetSummoned(uint32 petEntry)
+{
+    for (Unit::ControlList::iterator itr = m_Controlled.begin(); itr != m_Controlled.end(); ++itr)
+    if ((*itr)->GetEntry() == petEntry)
+        return true;
+
+    return false;
+}
+
 bool Player::CanUseMastery() const
 {
     return HasSpell(MasterySpells[getClass()]);

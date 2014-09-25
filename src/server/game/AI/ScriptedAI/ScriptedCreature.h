@@ -25,6 +25,8 @@
 #include "CreatureAIImpl.h"
 #include "InstanceScript.h"
 
+#define CAST_PLR(a)     (dynamic_cast<Player*>(a))
+#define CAST_CRE(a)     (dynamic_cast<Creature*>(a))
 #define CAST_AI(a, b)   (dynamic_cast<a*>(b))
 
 class InstanceScript;
@@ -353,6 +355,15 @@ struct ScriptedAI : public CreatureAI
         uint32 _evadeCheckCooldown;
         bool _isCombatMovementAllowed;
         bool _isHeroic;
+};
+
+struct Scripted_NoMovementAI : public ScriptedAI
+{
+    Scripted_NoMovementAI(Creature* creature) : ScriptedAI(creature) {}
+    virtual ~Scripted_NoMovementAI() {}
+
+    //Called at each attack of me by any victim
+    void AttackStart(Unit* target);
 };
 
 class BossAI : public ScriptedAI
