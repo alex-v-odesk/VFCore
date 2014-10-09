@@ -281,6 +281,7 @@ void AddSC_undercity();
 void AddSC_western_plaguelands();
 void AddSC_westfall();
 void AddSC_wetlands();
+void AddSC_gilneas();
 
 //kalimdor
 void AddSC_blackfathom_deeps();              //Blackfathom Depths
@@ -658,6 +659,7 @@ void AddSC_zangarmarsh();
 
 // Maelstrom
 void AddSC_kezan();
+void AddSC_lost_isle();
 
 // Events
 void AddSC_event_childrens_week();
@@ -994,6 +996,7 @@ void AddEasternKingdomsScripts()
     AddSC_western_plaguelands();
     AddSC_westfall();
     AddSC_wetlands();
+	AddSC_gilneas();
 #endif
 }
 
@@ -1388,6 +1391,7 @@ void AddMaelstromScripts()
 {
 #ifdef SCRIPTS
     AddSC_kezan();
+	AddSC_lost_isle();
 #endif
 }
 
