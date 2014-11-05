@@ -428,9 +428,6 @@ class Creature : public Unit, public GridObject<Creature>, public MapObject
         void SetObjectScale(float scale);
         void SetDisplayId(uint32 modelId);
 
-        void SetSeerGUID(uint64 guid) { uiSeerGUID = guid; }
-        uint64 GetSeerGUID() const { return uiSeerGUID; }
-
         void DisappearAndDie();
 
         bool Create(uint32 guidlow, Map* map, uint32 phaseMask, uint32 Entry, uint32 vehId, uint32 team, float x, float y, float z, float ang, const CreatureData* data = NULL);
@@ -652,7 +649,7 @@ class Creature : public Unit, public GridObject<Creature>, public MapObject
 
         static float _GetDamageMod(int32 Rank);
 
-        float m_SightDistance, m_CombatDistance, _ReactDistance;
+        float m_SightDistance, m_CombatDistance;
 
         void FarTeleportTo(Map* map, float X, float Y, float Z, float O);
 
@@ -712,7 +709,6 @@ class Creature : public Unit, public GridObject<Creature>, public MapObject
 
         bool IsInvisibleDueToDespawn() const;
         bool CanAlwaysSee(WorldObject const* obj) const;
-        uint64 uiSeerGUID;
     private:
         void ForcedDespawn(uint32 timeMSToDespawn = 0);
 

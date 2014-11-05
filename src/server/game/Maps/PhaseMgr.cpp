@@ -294,7 +294,7 @@ void PhaseData::SendPhaseshiftToPlayer()
             worldMapAreas.insert((*itr)->worldMapArea);
     }
 
-    player->GetSession()->SendSetPhaseShift(phaseIds, terrainswaps/*, worldMapAreas*/);
+    player->GetSession()->SendSetPhaseShift(phaseIds, terrainswaps, worldMapAreas);
 }
 
 void PhaseData::GetActivePhases(std::set<uint32>& phases) const

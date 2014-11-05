@@ -2686,27 +2686,6 @@ GameObject* WorldObject::FindNearestGameObjectOfType(GameobjectTypes type, float
     return go;
 }
 
-Player* WorldObject::FindNearestPlayer(float range, bool alive) const
-{
-    Player* player = NULL;
-    Trinity::AnyPlayerInObjectRangeCheck checker(this, range, alive);
-    Trinity::PlayerSearcher<Trinity::AnyPlayerInObjectRangeCheck> searcher(this, player, checker);
-    VisitNearbyWorldObject(range, searcher);
-    if (this->GetTypeId() == TYPEID_PLAYER)
-    if (this->GetGUID() == player->GetGUID())
-        return NULL;
-    return player;
-}
-
-std::list<Player*> WorldObject::GetPlayersInRange(float range, bool alive) const
-{
-    std::list<Player*> players;
-    Trinity::AnyPlayerInObjectRangeCheck checker(this, range, alive);
-    Trinity::PlayerListSearcher<Trinity::AnyPlayerInObjectRangeCheck> searcher(this, players, checker);
-    VisitNearbyWorldObject(range, searcher);
-    return players;
-}
-
 void WorldObject::GetGameObjectListWithEntryInGrid(std::list<GameObject*>& gameobjectList, uint32 entry, float maxSearchRange) const
 {
     CellCoord pair(Trinity::ComputeCellCoord(this->GetPositionX(), this->GetPositionY()));
