@@ -971,7 +971,7 @@ public:
         if (p)
             phaseId.insert((uint32)atoi(p));
 
-        handler->GetSession()->SendSetPhaseShift(phaseId, terrainswap/*, worldMapArea*/);
+        handler->GetSession()->SendSetPhaseShift(phaseId, terrainswap, worldMapArea);
         return true;
     }
 
